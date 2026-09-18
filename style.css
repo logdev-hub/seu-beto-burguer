@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;800&display=swap');
+:root{--red:#8f241d;--mustard:#d89b27;--cream:#f3e7cf;--ink:#211d19;--green:#294b37;--paper:#e8d6b4}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,Arial,sans-serif}.navbar{background:rgba(243,231,207,.95);border-bottom:2px solid var(--ink)}.navbar-brand,.navbar-brand:hover{font-family:'Archivo Black';color:var(--red)}.navbar-brand span{color:var(--ink)}.nav-link{font-weight:800;color:var(--ink)}.hero{padding:78px 0;background:var(--ink);color:var(--cream);overflow:hidden}.hero h1,.section h2,.poster h3,.menu-ad h3{font-family:'Archivo Black';text-transform:uppercase}.hero h1{font-size:clamp(3rem,7vw,6.5rem);line-height:.88;letter-spacing:-.05em}.hero h1 em{font-style:normal;color:var(--mustard)}.hero p{font-size:1.15rem;max-width:650px}.eyebrow,.section-title span{letter-spacing:.18em;font-weight:800;color:var(--mustard)}.hero-img{width:100%;height:520px;object-fit:cover;border:5px solid var(--cream);transform:rotate(2deg);box-shadow:18px 18px 0 var(--red)}.btn-brand{background:var(--mustard);border:2px solid var(--mustard);font-weight:800}.section{padding:80px 0}.section-title{margin-bottom:35px}.section h2{font-size:clamp(2rem,4vw,4rem);max-width:850px}.cardx{height:100%;padding:28px;border:2px solid var(--ink);background:#f7eedc;box-shadow:8px 8px 0 var(--red)}.cardx b{color:var(--red)}.cardx h3{font-weight:800;margin-top:10px}.dark{background:var(--green);color:var(--cream)}.funnel{display:grid;gap:12px;max-width:980px;margin:auto}.funnel>div{padding:22px 30px;background:var(--paper);color:var(--ink);border:2px solid var(--ink);margin:auto}.funnel>div:nth-child(1){width:100%}.funnel>div:nth-child(2){width:85%}.funnel>div:nth-child(3){width:70%}.funnel>div:nth-child(4){width:55%;background:var(--mustard)}.funnel small{font-weight:800;color:var(--red);display:block}.funnel strong{font-family:'Archivo Black';font-size:1.45rem}.funnel p{margin:4px 0 0}.mock-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}.mock{background:#fff7e8;border:2px solid var(--ink);box-shadow:9px 9px 0 var(--ink)}.caption{padding:18px 20px}.caption b{color:var(--red)}.caption p{margin:5px 0}.poster{height:610px;position:relative;overflow:hidden;background:var(--ink);color:#fff}.poster>img{width:100%;height:100%;object-fit:cover}.poster .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.08))}.poster .copy{position:absolute;left:28px;right:28px;bottom:28px;text-shadow:0 2px 10px #000}.poster .copy span,.menu-ad span{background:var(--mustard);color:var(--ink);padding:5px 9px;font-weight:800}.poster h3{font-size:clamp(2.4rem,5vw,4.7rem);line-height:.88;margin:14px 0}.poster .copy p{max-width:480px;font-weight:600}.poster button{border:0;padding:12px 16px;background:var(--red);color:white;font-weight:800}.consider .copy{background:rgba(33,29,25,.88);padding:24px;left:0;right:15%;bottom:0}.consider .stamp{position:absolute;right:25px;top:25px;background:var(--mustard);color:var(--ink);border:3px solid var(--ink);border-radius:50%;width:110px;height:110px;display:grid;place-items:center;text-align:center;font-family:'Archivo Black';transform:rotate(8deg)}.conversion .copy{background:linear-gradient(transparent,rgba(0,0,0,.9));left:0;right:0;bottom:0;padding:100px 28px 28px}.price{position:absolute;right:18px;top:18px;background:var(--mustard);color:var(--ink);padding:15px 20px;transform:rotate(3deg);font-weight:800;border:3px solid var(--ink)}.price strong{font-size:1.8rem}.poster small{display:block;margin-top:8px}.loyalty .copy{background:rgba(143,36,29,.88);padding:25px;left:20px;right:20px}.phone{max-width:390px;margin:25px auto;border:10px solid var(--ink);border-radius:30px;overflow:hidden;background:white;box-shadow:10px 10px 0 var(--mustard)}.phone-top{padding:12px;font-weight:800}.phone img{width:100%;height:380px;object-fit:cover}.social{padding:15px}.social span{font-size:1.4rem}.social b{display:block;margin-top:10px}.social a{display:block;background:#eee;padding:10px;text-align:center;font-weight:800;margin-top:10px}.menu-ad{min-height:610px;background:var(--red);color:var(--cream);display:grid;grid-template-rows:1fr 250px}.menu-ad>div{padding:35px}.menu-ad h3{font-size:3.4rem;line-height:.9;margin:18px 0}.menu-ad h3 em{color:var(--mustard);font-style:normal}.menu-ad img{width:100%;height:250px;object-fit:cover}.coupon{border:2px dashed var(--cream);padding:15px;margin-top:25px;display:inline-block}.beige{background:var(--paper)}.profile{height:100%;display:grid;grid-template-columns:190px 1fr;background:var(--cream);border:2px solid var(--ink);overflow:hidden}.profile img{width:100%;height:100%;min-height:280px;object-fit:cover}.profile div{padding:25px}.profile span{font-weight:800;color:var(--red);font-size:.8rem}.profile h3{font-family:'Archivo Black';margin-top:8px}.note{font-size:.82rem;margin-top:18px}footer{padding:25px 0;background:var(--ink);color:var(--cream)}@media(max-width:900px){.mock-grid{grid-template-columns:1fr}.hero-img{height:350px}.profile{grid-template-columns:1fr}.profile img{height:280px}.funnel>div{width:100%!important}.poster{height:540px}}
+
+
+/* ===== AJUSTES DE COMPOSIÇÃO — v2 ===== */
+/* Mantém a fotografia na coluna correta, sem avançar sobre o título. */
+.hero .container{position:relative;z-index:1}
+.hero .row{align-items:center;--bs-gutter-x:3.5rem}
+.hero .row > [class*="col-"]{position:relative;min-width:0}
+.hero .row > [class*="col-"]:first-child{z-index:2}
+.hero .row > [class*="col-"]:last-child{z-index:1}
+.hero h1{font-size:clamp(2.8rem,5.25vw,5.35rem);line-height:.91;letter-spacing:-.045em;max-width:100%;overflow-wrap:normal}
+.hero p{font-size:1.05rem;line-height:1.55;max-width:590px}
+.hero-img{display:block;max-width:100%;height:470px;transform:rotate(1.25deg);box-shadow:14px 14px 0 var(--red)}
+
+/* Mockups: a foto continua dominante e a copy ocupa menos área. */
+.poster{height:610px}
+.poster .copy{left:24px;right:24px;bottom:24px}
+.poster h3{font-size:clamp(2rem,3.15vw,3.55rem);line-height:.94;letter-spacing:-.025em;margin:12px 0}
+.poster .copy p{font-size:.98rem;line-height:1.42;max-width:520px}
+.poster .copy span,.menu-ad span{font-size:.88rem}
+.poster button{font-size:.92rem;padding:11px 15px}
+
+/* Bastidores: reduz o painel escuro para não encobrir quase toda a fotografia. */
+.consider .copy{left:0;right:15%;bottom:0;padding:22px 28px 24px;background:rgba(33,29,25,.82)}
+.consider h3{font-size:clamp(2rem,3.25vw,3.65rem)}
+.consider .stamp{width:104px;height:104px;font-size:.92rem}
+
+/* Conversão: texto menor e concentrado no rodapé. */
+.conversion .copy{padding:120px 28px 28px}
+.conversion h3{font-size:clamp(2rem,3.1vw,3.45rem);max-width:560px}
+.price{padding:12px 17px}
+.price strong{font-size:1.55rem}
+
+/* Fidelização: painel mais baixo e título proporcional à foto. */
+.loyalty .copy{left:24px;right:24px;bottom:22px;padding:22px 26px;background:rgba(143,36,29,.84)}
+.loyalty h3{font-size:clamp(2rem,3.1vw,3.45rem);max-width:620px}
+
+@media (min-width:1200px){
+  .hero .col-lg-6:first-child{flex:0 0 48%;max-width:48%}
+  .hero .col-lg-6:last-child{flex:0 0 52%;max-width:52%}
+}
+@media(max-width:991.98px){
+  .hero{padding:60px 0}
+  .hero h1{font-size:clamp(2.8rem,9vw,5rem)}
+  .hero-img{margin-top:34px;height:390px;transform:none;box-shadow:10px 10px 0 var(--red)}
+}
+@media(max-width:600px){
+  .poster{height:520px}
+  .poster h3,.consider h3,.conversion h3,.loyalty h3{font-size:clamp(1.85rem,10vw,2.8rem)}
+  .consider .copy{right:8%;padding:18px}
+  .consider .stamp{width:88px;height:88px;right:14px;top:14px;font-size:.78rem}
+  .loyalty .copy{left:14px;right:14px;padding:18px}
+}
