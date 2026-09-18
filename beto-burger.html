@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jornada do Cliente — Seu Beto Burger | Material Didático</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --kraft:#ECD9B5;
+    --paper:#FBF3E3;
+    --paper-line:#D8C29B;
+    --charcoal:#2B1D14;
+    --ink-soft:#5A4632;
+    --red:#C8102E;
+    --red-dark:#8C0E22;
+    --mustard:#F0A202;
+    --mustard-dark:#C97F00;
+    --orange:#E86A17;
+    --olive:#6B8E23;
+    --olive-dark:#4C6619;
+    --green:#3E7C3A;
+    --green-dark:#2C5A29;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    background:var(--kraft);
+    color:var(--charcoal);
+    font-family:'Nunito', sans-serif;
+    line-height:1.55;
+  }
+
+  h1,h2,h3, .display-font{
+    font-family:'Anton', sans-serif;
+    letter-spacing:.02em;
+    line-height:1.05;
+  }
+
+  .kpi-mono{
+    font-family:'Space Mono', monospace;
+    font-size:.82rem;
+    line-height:1.5;
+  }
+
+  a{ color:var(--red-dark); }
+
+  /* ---------- NAV ---------- */
+  .topnav{
+    background:var(--charcoal);
+    border-bottom:6px solid var(--mustard);
+  }
+  .topnav .brand{
+    font-family:'Anton', sans-serif;
+    color:var(--paper);
+    font-size:1.3rem;
+    letter-spacing:.03em;
+  }
+  .topnav .nav-link{
+    color:#E9D9BE;
+    font-weight:700;
+    font-size:.92rem;
+  }
+  .topnav .nav-link:hover{ color:var(--mustard); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--red);
+    color:var(--paper);
+    padding:4.5rem 0 3.5rem;
+    overflow:hidden;
+    border-bottom:10px solid var(--charcoal);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:repeating-linear-gradient(45deg, rgba(255,255,255,.07) 0 22px, transparent 22px 44px);
+    pointer-events:none;
+  }
+  .hero .kicker{
+    font-family:'Space Mono', monospace;
+    text-transform:none;
+    background:var(--mustard);
+    color:var(--charcoal);
+    display:inline-block;
+    padding:.3rem .8rem;
+    border-radius:3px;
+    font-size:.85rem;
+    font-weight:700;
+    transform:rotate(-2deg);
+    box-shadow:2px 3px 0 rgba(0,0,0,.25);
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 5rem);
+    margin:.6rem 0 .3rem;
+    text-shadow:3px 3px 0 rgba(0,0,0,.2);
+  }
+  .hero .subtitle{
+    font-size:1.15rem;
+    max-width:640px;
+    color:#FBE7DA;
+    position:relative;
+  }
+  .hero .stat-chips{
+    position:relative;
+    margin-top:1.8rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.6rem;
+  }
+  .hero .stat-chips span{
+    background:rgba(0,0,0,.28);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:30px;
+    padding:.45rem 1rem;
+    font-size:.9rem;
+    font-weight:700;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:3.2rem 0; }
+  .section-title{
+    font-size:clamp(1.7rem, 4vw, 2.4rem);
+    color:var(--red-dark);
+    margin-bottom:.3rem;
+  }
+  .section-lead{
+    color:var(--ink-soft);
+    max-width:680px;
+    margin-bottom:2rem;
+  }
+
+  /* ---------- PERSONA (ficha de cadastro, não card) ---------- */
+  .persona-wrap{
+    background:var(--paper);
+    border:1px solid var(--paper-line);
+    border-left:8px solid var(--mustard);
+    border-radius:2px;
+    padding:1.8rem 2rem;
+    display:flex;
+    gap:1.8rem;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .persona-avatar{
+    flex:0 0 auto;
+    width:88px; height:88px;
+    border-radius:6px;
+    background:var(--mustard);
+    display:flex; align-items:center; justify-content:center;
+    font-size:2.6rem;
+    border:2px solid var(--charcoal);
+  }
+  .persona-info h3{
+    font-family:'Nunito', sans-serif;
+    font-weight:900;
+    font-size:1.4rem;
+    margin-bottom:.1rem;
+    color:var(--charcoal);
+  }
+  .persona-info .role{
+    color:var(--ink-soft);
+    font-weight:700;
+    margin-bottom:.9rem;
+  }
+  .persona-facts{
+    display:flex; flex-wrap:wrap; gap:.5rem;
+  }
+  .persona-facts span{
+    background:var(--kraft);
+    border:1px solid var(--paper-line);
+    border-radius:8px;
+    padding:.35rem .7rem;
+    font-size:.87rem;
+    font-weight:700;
+  }
+
+  /* ---------- CONCEITO ---------- */
+  .concept-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.2rem;
+  }
+  @media(max-width:768px){ .concept-grid{ grid-template-columns:1fr; } }
+
+  .concept-card{
+    border-radius:14px;
+    padding:1.6rem 1.7rem;
+  }
+  .concept-card.active{
+    background:var(--charcoal);
+    color:var(--paper);
+    border:3px solid var(--mustard);
+  }
+  .concept-card.inactive{
+    background:var(--paper);
+    border:1px dashed var(--paper-line);
+    color:var(--ink-soft);
+  }
+  .concept-card h4{
+    font-family:'Nunito', sans-serif;
+    font-weight:900;
+    font-size:1.15rem;
+    margin-bottom:1rem;
+  }
+  .concept-card .voice{
+    font-family:'Space Mono', monospace;
+    font-size:.95rem;
+    padding-left:1rem;
+    border-left:3px solid var(--mustard);
+    margin-bottom:1rem;
+  }
+  .concept-card.inactive .voice{ border-left-color:var(--red); }
+  .concept-card p:last-child{ margin:0; font-size:.92rem; }
+
+  /* ---------- JORNADA TOGGLE ---------- */
+  .view-toggle{
+    display:inline-flex;
+    background:var(--paper);
+    border:1px solid var(--paper-line);
+    border-radius:30px;
+    padding:.3rem;
+    gap:.2rem;
+  }
+  .view-toggle button{
+    border:none;
+    background:transparent;
+    padding:.5rem 1.1rem;
+    border-radius:24px;
+    font-weight:800;
+    font-size:.9rem;
+    color:var(--ink-soft);
+  }
+  .view-toggle button.active{
+    background:var(--charcoal);
+    color:var(--paper);
+  }
+  .print-btn{
+    border:1px solid var(--charcoal);
+    background:var(--mustard);
+    color:var(--charcoal);
+    font-weight:800;
+    border-radius:30px;
+    padding:.5rem 1.1rem;
+    font-size:.9rem;
+  }
+  .print-btn:hover{ background:var(--mustard-dark); }
+
+  /* ---------- MATRIX TABLE ---------- */
+  .table-shell{
+    background:var(--paper);
+    border:1px solid var(--paper-line);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .table-scroll{
+    overflow-x:auto;
+  }
+  table.jornada{
+    border-collapse:separate;
+    border-spacing:0;
+    width:100%;
+    min-width:1080px;
+  }
+  table.jornada th, table.jornada td{
+    padding:.95rem 1rem;
+    vertical-align:top;
+    font-size:.9rem;
+    border-bottom:1px solid var(--paper-line);
+    border-right:1px solid var(--paper-line);
+  }
+  table.jornada thead th{
+    font-family:'Nunito', sans-serif;
+    font-weight:900;
+    font-size:.95rem;
+    text-align:left;
+    padding-top:1.1rem;
+    padding-bottom:1.1rem;
+    position:sticky; top:0;
+    z-index:2;
+  }
+  table.jornada thead th:first-child{
+    background:var(--charcoal);
+    color:var(--paper);
+  }
+  .row-label{
+    position:sticky; left:0;
+    background:var(--kraft);
+    font-weight:800;
+    color:var(--charcoal);
+    min-width:170px;
+    z-index:1;
+    border-right:2px solid var(--charcoal);
+  }
+  .row-label .icon{ margin-right:.4rem; }
+
+  th[data-stage="conhecimento"]{ background:var(--mustard); color:var(--charcoal); }
+  th[data-stage="consideracao"]{ background:var(--orange); color:#fff; }
+  th[data-stage="compra"]{ background:var(--red); color:#fff; }
+  th[data-stage="uso"]{ background:var(--red-dark); color:#fff; }
+  th[data-stage="fidelizacao"]{ background:var(--olive); color:#fff; }
+  th[data-stage="recomendacao"]{ background:var(--green); color:#fff; }
+
+  td[data-stage]{ transition:background-color .15s ease; }
+  td.col-hover{ background:#FDF0D8; }
+
+  table.jornada tbody tr:last-child td{ border-bottom:none; }
+  table.jornada td:last-child, table.jornada th:last-child{ border-right:none; }
+
+  /* ---------- CARDS VIEW ---------- */
+  .stage-pills{
+    display:flex;
+    gap:.5rem;
+    overflow-x:auto;
+    padding-bottom:.6rem;
+    margin-bottom:1.4rem;
+  }
+  .stage-pills .nav-link{
+    white-space:nowrap;
+    border-radius:30px;
+    font-weight:800;
+    font-size:.9rem;
+    padding:.55rem 1.15rem;
+    color:var(--ink-soft);
+    background:var(--paper);
+    border:1px solid var(--paper-line);
+  }
+  .stage-pills .nav-link.active{
+    color:#fff;
+  }
+  .stage-pills .nav-link.active[data-stage="conhecimento"]{ background:var(--mustard); color:var(--charcoal); }
+  .stage-pills .nav-link.active[data-stage="consideracao"]{ background:var(--orange); }
+  .stage-pills .nav-link.active[data-stage="compra"]{ background:var(--red); }
+  .stage-pills .nav-link.active[data-stage="uso"]{ background:var(--red-dark); }
+  .stage-pills .nav-link.active[data-stage="fidelizacao"]{ background:var(--olive); }
+  .stage-pills .nav-link.active[data-stage="recomendacao"]{ background:var(--green); }
+
+  .stage-card{
+    background:var(--paper);
+    border:1px solid var(--paper-line);
+    border-radius:14px;
+    padding:1.8rem;
+  }
+  .stage-card .row-block{
+    padding:1rem 0;
+    border-bottom:1px dashed var(--paper-line);
+  }
+  .stage-card .row-block:last-child{ border-bottom:none; padding-bottom:0; }
+  .stage-card .row-block .label{
+    font-weight:900;
+    font-size:.85rem;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    color:var(--red-dark);
+    margin-bottom:.35rem;
+  }
+  .stage-card .row-block p{ margin:0; font-size:.95rem; }
+
+  /* ---------- JUSTIFICATIVA ---------- */
+  .receipt{
+    background:var(--paper);
+    border:1px solid var(--paper-line);
+    border-radius:0;
+    padding:2rem 2.2rem 2.6rem;
+    max-width:760px;
+    position:relative;
+    font-family:'Space Mono', monospace;
+    font-size:.92rem;
+    color:var(--charcoal);
+    transform:rotate(-0.4deg);
+    box-shadow:0 6px 14px rgba(43,29,20,.12);
+    clip-path: polygon(
+      0% 0%, 100% 0%, 100% calc(100% - 14px),
+      93% 100%, 86% calc(100% - 14px), 79% 100%, 72% calc(100% - 14px),
+      65% 100%, 58% calc(100% - 14px), 51% 100%, 44% calc(100% - 14px),
+      37% 100%, 30% calc(100% - 14px), 23% 100%, 16% calc(100% - 14px),
+      9% 100%, 2% calc(100% - 14px), 0% 100%
+    );
+  }
+  .receipt::before{
+    content:"🧾 JUSTIFICATIVA — ALTO MOVIMENTO";
+    display:block;
+    font-weight:700;
+    margin-bottom:1rem;
+    color:var(--red-dark);
+    font-size:.85rem;
+  }
+
+  footer{
+    background:var(--charcoal);
+    color:#C9B393;
+    padding:1.6rem 0;
+    font-size:.85rem;
+  }
+
+  @media print{
+    .topnav, .view-toggle, .print-btn, #view-cards, .anchor-jump{ display:none !important; }
+    body{ background:#fff; }
+    .hero{ background:#fff; color:#000; border-bottom:2px solid #000; }
+    .hero::before{ display:none; }
+    .hero .kicker{ box-shadow:none; }
+    table.jornada{ min-width:0; }
+    th[data-stage], .row-label{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav navbar navbar-expand-md sticky-top py-2">
+  <div class="container d-flex justify-content-between align-items-center">
+    <span class="brand">🍔 Seu Beto Burger</span>
+    <div class="d-none d-md-flex gap-3">
+      <a class="nav-link" href="#persona">👩‍⚕️ Persona</a>
+      <a class="nav-link" href="#conceito">🎯 Conceito</a>
+      <a class="nav-link" href="#jornada">🗺️ Jornada</a>
+      <a class="nav-link" href="#justificativa">🧾 Justificativa</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <span class="kicker">cardápio de bolso do professor</span>
+    <h1>SEU BETO<br>BURGER</h1>
+    <p class="subtitle">Hamburgueria de bairro em Itaquera, Zona Leste de São Paulo. Gestão familiar, cardápio simples e conhecido, atendimento em balcão + delivery próprio via WhatsApp e iFood.</p>
+    <div class="stat-chips">
+      <span>📍 Itaquera — Zona Leste, SP</span>
+      <span>💵 Ticket médio R$ 28–38 (individual)</span>
+      <span>👨‍👩‍👧 R$ 70–110 (pedido família)</span>
+      <span>🔥 Perfil: Alto Movimento</span>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="persona">
+    <h2 class="section-title">👩‍⚕️ Persona</h2>
+    <p class="section-lead">A jornada inteira é construída em cima de quem realmente compra da esquina — não de um consumidor genérico.</p>
+
+    <div class="persona-wrap">
+      <div class="persona-avatar">👩‍⚕️</div>
+      <div class="persona-info">
+        <h3>Camila, 27 anos</h3>
+        <p class="role">Técnica de enfermagem — mora em Itaquera</p>
+        <div class="persona-facts">
+          <span>💍 Casada, um filho pequeno</span>
+          <span>💰 Renda familiar R$ 3.500–4.500/mês</span>
+          <span>⏰ Trabalha em turnos/plantões</span>
+          <span>🍔 Pede lanche 1–2x por semana</span>
+          <span>🚶 Prefere retirar no balcão</span>
+          <span>📱 Decide rápido, pelo grupo de WhatsApp do bairro</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="conceito">
+    <h2 class="section-title">🎯 Por que Alto Movimento?</h2>
+    <p class="section-lead">Camila decide em segundos, guiada por fome, preço e proximidade — não por pesquisa comparativa. Isso muda tudo na jornada.</p>
+
+    <div class="concept-grid">
+      <div class="concept-card active">
+        <h4>🍔 Como a Camila decide de verdade</h4>
+        <p class="voice">"Só decido pela fome, pelo preço e por quem tá perto de casa."</p>
+        <p>É assim que ela compra: por impulso ou rotina, em segundos, sem comparar marca. A lealdade vem do hábito e da proximidade, não de argumento racional — por isso os CTAs falam de fome, preço e distância; os canais são de bairro e baixo custo (WhatsApp, Instagram local, panfleto); e os KPIs medem giro — pedidos por dia, ticket médio, recompra.</p>
+      </div>
+      <div class="concept-card inactive">
+        <h4>💻 O que nunca passa pela cabeça dela</h4>
+        <p class="voice">"Comparar preço em três sites antes de pedir um lanche? Bizarro."</p>
+        <p>Pesquisa longa, ciclo de decisão de semanas, conteúdo institucional caro, linguagem "premium" e métricas de venda longa como CAC ou taxa de fechamento B2B — nada disso existe na cabeça de quem só quer comer rápido e barato perto de casa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="jornada">
+    <h2 class="section-title">🗺️ Jornada Estratégica do Cliente</h2>
+    <p class="section-lead">Da descoberta na esquina até a indicação para o vizinho — seis etapas, quatro camadas de ação por etapa.</p>
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3 anchor-jump">
+      <div class="view-toggle">
+        <button id="btn-tabela" class="active" onclick="showView('tabela')">📊 Tabela completa</button>
+        <button id="btn-cards" onclick="showView('cards')">📱 Por etapa</button>
+      </div>
+      <button class="print-btn" onclick="window.print()">🖨️ Imprimir / salvar PDF</button>
+    </div>
+
+    <!-- TABLE VIEW -->
+    <div id="view-tabela" class="table-shell">
+      <div class="table-scroll">
+        <table class="jornada">
+          <thead>
+            <tr>
+              <th>Etapa</th>
+              <th data-stage="conhecimento">👀 Conhecimento</th>
+              <th data-stage="consideracao">🤔 Consideração</th>
+              <th data-stage="compra">🛒 Compra</th>
+              <th data-stage="uso">😋 Uso</th>
+              <th data-stage="fidelizacao">❤️ Fidelização</th>
+              <th data-stage="recomendacao">📣 Recomendação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="row-label"><span class="icon">🎯</span>CTA</th>
+              <td data-stage="conhecimento">"Vem provar o X-Tudo que todo mundo da rua já comentou — feito na hora, do jeito do Seu Beto 🍔"</td>
+              <td data-stage="consideracao">"Saiu do plantão? Chega até 20h e o combo da Terça (R$ 32) ainda tá de pé — chama no zap!"</td>
+              <td data-stage="compra">"Pede aí! Retirada no balcão sem taxa, ou leva o Combo Família que sai mais em conta que dois lanches separados 🍔🍔"</td>
+              <td data-stage="uso">"Posta o lanche no Stories e marca a gente — quem aparecer ganha um adesivo colecionável na próxima visita 🏷️"</td>
+              <td data-stage="fidelizacao">"Já é o 5º carimbo do cartão? O 6º lanche é por nossa conta! 🎉"</td>
+              <td data-stage="recomendacao">"Chama um amigo e ganha batata grátis pra vocês dois!"</td>
+            </tr>
+            <tr>
+              <th class="row-label"><span class="icon">📍</span>Pontos de Contato</th>
+              <td data-stage="conhecimento">Instagram @seubetoburger e Facebook "Seu Beto Burger Itaquera" (descoberta), panfletagem impressa na saída do metrô Itaquera e na feira de sábado, parceria com salão e barbearia vizinhos</td>
+              <td data-stage="consideracao">Grupo de WhatsApp "Vizinhança Itaquera" — o grupo geral do bairro, não o da loja (descoberta social), avaliações no Google Meu Negócio e no iFood, indicação de vizinhos e colegas de plantão</td>
+              <td data-stage="compra">WhatsApp Business do Seu Beto Burger — linha direta de atendimento e pedido, balcão do salão, iFood e Rappi</td>
+              <td data-stage="uso">Embalagem com adesivo e QR code do Instagram, atendimento pessoal do Beto e da família no balcão</td>
+              <td data-stage="fidelizacao">Lista de transmissão do WhatsApp só para clientes cadastrados — canal de recorrência, cartão fidelidade físico carimbado no balcão, enquetes no Stories</td>
+              <td data-stage="recomendacao">Grupo de WhatsApp "Vizinhança Itaquera" — agora é o próprio cliente satisfeito que posta, pedido de avaliação no Google/iFood na entrega, indicação para colegas de plantão</td>
+            </tr>
+            <tr>
+              <th class="row-label"><span class="icon">🎨</span>Formato de Conteúdo</th>
+              <td data-stage="conhecimento">Flyer impresso simples com foto do combo, preço e QR code do Instagram, distribuído porta a porta e na feira; vídeo curto do X-Tudo saindo da chapa (Reels 15s); story "bastidores da chapa"</td>
+              <td data-stage="consideracao">Card de promoção "Terça do Combo", print de avaliações 5 estrelas no Status, cardápio fotografado enviado no WhatsApp</td>
+              <td data-stage="compra">Cardápio impresso fixado no balcão com o Combo Família em destaque, mensagem automática de boas-vindas no WhatsApp Business, banner "retire e economize a taxa"</td>
+              <td data-stage="uso">Adesivo na sacola com a frase "comeu, aprovou, volta sempre", guardanapo personalizado com o número do WhatsApp</td>
+              <td data-stage="fidelizacao">Cartão fidelidade impresso e carimbável, mensagem de aniversário automática no WhatsApp com desconto, story "aniversariantes do mês"</td>
+              <td data-stage="recomendacao">Cartão impresso "indique e ganhe" entregue junto do pedido, repost de fotos de clientes marcando @seubetoburger, pedido verbal no balcão</td>
+            </tr>
+            <tr>
+              <th class="row-label"><span class="icon">📊</span>Métricas / KPIs</th>
+              <td class="kpi-mono" data-stage="conhecimento">Alcance semanal de posts/stories (meta: 800 contas), panfletos distribuídos x cupons resgatados (meta: 15% de resgate) — revisão toda sexta</td>
+              <td class="kpi-mono" data-stage="consideracao">Cliques no cardápio do WhatsApp (meta: 30/semana), nota média no Google e no iFood (meta: acima de 4,5) — revisão quinzenal</td>
+              <td class="kpi-mono" data-stage="compra">Pedidos por dia (meta: 45), ticket médio (meta: R$ 34), % de pedidos com Combo Família — revisão semanal</td>
+              <td class="kpi-mono" data-stage="uso">Fotos/marcações recebidas por semana (meta: 5), reclamações e elogios anotados no caderno do balcão — revisão semanal</td>
+              <td class="kpi-mono" data-stage="fidelizacao">Taxa de recompra em 30 dias (meta: 40%), cartões fidelidade completados no mês — revisão mensal</td>
+              <td class="kpi-mono" data-stage="recomendacao">Novos clientes via cupom de indicação (meta: 10/mês), novas avaliações no Google/iFood (meta: 8/mês) — revisão mensal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CARDS VIEW -->
+    <div id="view-cards" class="d-none">
+      <div class="stage-pills nav">
+        <a href="#" class="nav-link active" data-stage="conhecimento" onclick="showStage(event,'conhecimento')">👀 Conhecimento</a>
+        <a href="#" class="nav-link" data-stage="consideracao" onclick="showStage(event,'consideracao')">🤔 Consideração</a>
+        <a href="#" class="nav-link" data-stage="compra" onclick="showStage(event,'compra')">🛒 Compra</a>
+        <a href="#" class="nav-link" data-stage="uso" onclick="showStage(event,'uso')">😋 Uso</a>
+        <a href="#" class="nav-link" data-stage="fidelizacao" onclick="showStage(event,'fidelizacao')">❤️ Fidelização</a>
+        <a href="#" class="nav-link" data-stage="recomendacao" onclick="showStage(event,'recomendacao')">📣 Recomendação</a>
+      </div>
+
+      <div class="stage-card" id="stagecard-conhecimento">
+        <div class="row-block"><div class="label">🎯 CTA</div><p>"Vem provar o X-Tudo que todo mundo da rua já comentou — feito na hora, do jeito do Seu Beto 🍔"</p></div>
+        <div class="row-block"><div class="label">📍 Pontos de Contato</div><p>Instagram @seubetoburger e Facebook "Seu Beto Burger Itaquera" (descoberta), panfletagem impressa na saída do metrô Itaquera e na feira de sábado, parceria com salão e barbearia vizinhos</p></div>
+        <div class="row-block"><div class="label">🎨 Formato de Conteúdo</div><p>Flyer impresso simples com foto do combo, preço e QR code do Instagram, distribuído porta a porta e na feira; vídeo curto do X-Tudo saindo da chapa (Reels 15s); story "bastidores da chapa"</p></div>
+        <div class="row-block"><div class="label">📊 Métricas / KPIs</div><p class="kpi-mono">Alcance semanal de posts/stories (meta: 800 contas), panfletos distribuídos x cupons resgatados (meta: 15% de resgate) — revisão toda sexta</p></div>
+      </div>
+
+      <div class="stage-card d-none" id="stagecard-consideracao">
+        <div class="row-block"><div class="label">🎯 CTA</div><p>"Saiu do plantão? Chega até 20h e o combo da Terça (R$ 32) ainda tá de pé — chama no zap!"</p></div>
+        <div class="row-block"><div class="label">📍 Pontos de Contato</div><p>Grupo de WhatsApp "Vizinhança Itaquera" — o grupo geral do bairro, não o da loja (descoberta social), avaliações no Google Meu Negócio e no iFood, indicação de vizinhos e colegas de plantão</p></div>
+        <div class="row-block"><div class="label">🎨 Formato de Conteúdo</div><p>Card de promoção "Terça do Combo", print de avaliações 5 estrelas no Status, cardápio fotografado enviado no WhatsApp</p></div>
+        <div class="row-block"><div class="label">📊 Métricas / KPIs</div><p class="kpi-mono">Cliques no cardápio do WhatsApp (meta: 30/semana), nota média no Google e no iFood (meta: acima de 4,5) — revisão quinzenal</p></div>
+      </div>
+
+      <div class="stage-card d-none" id="stagecard-compra">
+        <div class="row-block"><div class="label">🎯 CTA</div><p>"Pede aí! Retirada no balcão sem taxa, ou leva o Combo Família que sai mais em conta que dois lanches separados 🍔🍔"</p></div>
+        <div class="row-block"><div class="label">📍 Pontos de Contato</div><p>WhatsApp Business do Seu Beto Burger — linha direta de atendimento e pedido, balcão do salão, iFood e Rappi</p></div>
+        <div class="row-block"><div class="label">🎨 Formato de Conteúdo</div><p>Cardápio impresso fixado no balcão com o Combo Família em destaque, mensagem automática de boas-vindas no WhatsApp Business, banner "retire e economize a taxa"</p></div>
+        <div class="row-block"><div class="label">📊 Métricas / KPIs</div><p class="kpi-mono">Pedidos por dia (meta: 45), ticket médio (meta: R$ 34), % de pedidos com Combo Família — revisão semanal</p></div>
+      </div>
+
+      <div class="stage-card d-none" id="stagecard-uso">
+        <div class="row-block"><div class="label">🎯 CTA</div><p>"Posta o lanche no Stories e marca a gente — quem aparecer ganha um adesivo colecionável na próxima visita 🏷️"</p></div>
+        <div class="row-block"><div class="label">📍 Pontos de Contato</div><p>Embalagem com adesivo e QR code do Instagram, atendimento pessoal do Beto e da família no balcão</p></div>
+        <div class="row-block"><div class="label">🎨 Formato de Conteúdo</div><p>Adesivo na sacola com a frase "comeu, aprovou, volta sempre", guardanapo personalizado com o número do WhatsApp</p></div>
+        <div class="row-block"><div class="label">📊 Métricas / KPIs</div><p class="kpi-mono">Fotos/marcações recebidas por semana (meta: 5), reclamações e elogios anotados no caderno do balcão — revisão semanal</p></div>
+      </div>
+
+      <div class="stage-card d-none" id="stagecard-fidelizacao">
+        <div class="row-block"><div class="label">🎯 CTA</div><p>"Já é o 5º carimbo do cartão? O 6º lanche é por nossa conta! 🎉"</p></div>
+        <div class="row-block"><div class="label">📍 Pontos de Contato</div><p>Lista de transmissão do WhatsApp só para clientes cadastrados — canal de recorrência, cartão fidelidade físico carimbado no balcão, enquetes no Stories</p></div>
+        <div class="row-block"><div class="label">🎨 Formato de Conteúdo</div><p>Cartão fidelidade impresso e carimbável, mensagem de aniversário automática no WhatsApp com desconto, story "aniversariantes do mês"</p></div>
+        <div class="row-block"><div class="label">📊 Métricas / KPIs</div><p class="kpi-mono">Taxa de recompra em 30 dias (meta: 40%), cartões fidelidade completados no mês — revisão mensal</p></div>
+      </div>
+
+      <div class="stage-card d-none" id="stagecard-recomendacao">
+        <div class="row-block"><div class="label">🎯 CTA</div><p>"Chama um amigo e ganha batata grátis pra vocês dois!"</p></div>
+        <div class="row-block"><div class="label">📍 Pontos de Contato</div><p>Grupo de WhatsApp "Vizinhança Itaquera" — agora é o próprio cliente satisfeito que posta, pedido de avaliação no Google/iFood na entrega, indicação para colegas de plantão</p></div>
+        <div class="row-block"><div class="label">🎨 Formato de Conteúdo</div><p>Cartão impresso "indique e ganhe" entregue junto do pedido, repost de fotos de clientes marcando @seubetoburger, pedido verbal no balcão</p></div>
+        <div class="row-block"><div class="label">📊 Métricas / KPIs</div><p class="kpi-mono">Novos clientes via cupom de indicação (meta: 10/mês), novas avaliações no Google/iFood (meta: 8/mês) — revisão mensal</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="justificativa">
+    <h2 class="section-title">🧾 Justificativa</h2>
+    <div class="receipt">
+      O Seu Beto Burger foi tratado como um caso de <strong>Alto Movimento</strong> porque a decisão de compra de Camila leva segundos, não semanas: ela decide pela fome, pelo preço e pela proximidade de casa, sem pesquisar ou comparar marcas como faria antes de uma compra de alto envolvimento. Por isso, os CTAs em toda a jornada são diretos e ligados a fome, preço e distância — nunca a "pesquisar" ou "conhecer mais". Os pontos de contato são todos de baixo custo e de bairro (Instagram e Facebook locais, grupo de WhatsApp da vizinhança, panfletagem, parceria com comércios vizinhos, iFood/Rappi e cartão fidelidade físico), coerentes com o orçamento de um negócio familiar pequeno. O formato de conteúdo evita qualquer produção cara: fotos simples do produto, vídeos curtos de bastidores e cardápio em papel ou PDF. E as métricas acompanham o giro do negócio — pedidos por dia, ticket médio, frequência de recompra e uso do cartão fidelidade — e não indicadores de ciclo de vendas longo, como CAC ou taxa de fechamento B2B, que não fazem sentido para uma decisão tomada no balcão em poucos segundos. Cada KPI carrega uma meta simples e uma cadência de revisão (semanal, quinzenal ou mensal) porque um negócio de Alto Movimento precisa de ajuste rápido, não de relatório trimestral. A jornada também amarra o CTA de Consideração ao horário real de troca de plantão de Camila — reforçando que a compra por impulso acontece num momento específico do dia, não em qualquer hora — e usa a etapa de Compra para puxar o ticket médio para cima com o Combo Família, sem depender de nenhum canal ou ferramenta que fuja do que um negócio simples e popular consegue sustentar: rede social, WhatsApp e material impresso no próprio estabelecimento.
+    </div>
+  </section>
+
+</main>
+
+<footer class="text-center">
+  <div class="container">
+    Material didático de referência — Jornada Estratégica do Cliente aplicada a um negócio de Alto Movimento 🍔
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function showView(view){
+    const tabela = document.getElementById('view-tabela');
+    const cards = document.getElementById('view-cards');
+    const btnTabela = document.getElementById('btn-tabela');
+    const btnCards = document.getElementById('btn-cards');
+    if(view === 'tabela'){
+      tabela.classList.remove('d-none');
+      cards.classList.add('d-none');
+      btnTabela.classList.add('active');
+      btnCards.classList.remove('active');
+    } else {
+      tabela.classList.add('d-none');
+      cards.classList.remove('d-none');
+      btnCards.classList.add('active');
+      btnTabela.classList.remove('active');
+    }
+  }
+
+  function showStage(e, stage){
+    e.preventDefault();
+    document.querySelectorAll('.stage-pills .nav-link').forEach(el => el.classList.remove('active'));
+    e.currentTarget.classList.add('active');
+    document.querySelectorAll('.stage-card').forEach(el => el.classList.add('d-none'));
+    document.getElementById('stagecard-' + stage).classList.remove('d-none');
+  }
+
+  // Realce da coluna ao passar o mouse no cabeçalho da etapa (facilita a leitura da matriz)
+  document.querySelectorAll('table.jornada thead th[data-stage]').forEach(header => {
+    const stage = header.getAttribute('data-stage');
+    header.addEventListener('mouseenter', () => {
+      document.querySelectorAll('td[data-stage="' + stage + '"]').forEach(td => td.classList.add('col-hover'));
+    });
+    header.addEventListener('mouseleave', () => {
+      document.querySelectorAll('td[data-stage="' + stage + '"]').forEach(td => td.classList.remove('col-hover'));
+    });
+  });
+</script>
+
+</body>
+</html>
